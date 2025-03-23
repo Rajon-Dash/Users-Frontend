@@ -19,7 +19,7 @@ const App = () => {
         }
       />
       {/* Only use wildcard for catching undefined routes */}
-      <Route path="*" element={<RegisterPage/>} />
+      <Route path="*" element={<LoginPage/>} />
     </Routes>
   );
 };
