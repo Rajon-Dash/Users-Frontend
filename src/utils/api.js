@@ -1,7 +1,7 @@
 import axios from "axios";
-const  REACT_APP_BACKEND_URL= "https://users-backend-production.up.railway.app"
+// const  REACT_APP_BACKEND_URL= "https://users-backend-production.up.railway.app"
 const api = axios.create({
-  baseURL:REACT_APP_BACKEND_URL, //  Use environment variable for flexibility
+  baseURL:"http://localhost:5000", //  Use environment variable for flexibility
   withCredentials: true, // Allows sending cookies (if using JWT in cookies)
   headers: {
     "Content-Type": "application/json",

@@ -17,7 +17,7 @@ const LoginPage = () => {
       navigate("/dashboard");
     } catch (err) {
       console.error("Login error:", err); // Log error for debugging
-      setError(err.response?.data?.message || "Invalid credentials or user not found");
+      setError(err.response?.data?.error || "Invalid credentials or user not found");
     }
   };
 
