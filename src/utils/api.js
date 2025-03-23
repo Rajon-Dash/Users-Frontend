@@ -1,17 +1,14 @@
-
-
-
 import axios from "axios";
-
+const  REACT_APP_BACKEND_URL= "https://users-backend-production.up.railway.app"
 const api = axios.create({
-  baseURL:"http://localhost:5000", // ✅ Use environment variable for flexibility
-  withCredentials: true, // ✅ Allows sending cookies (if using JWT in cookies)
+  baseURL:REACT_APP_BACKEND_URL, //  Use environment variable for flexibility
+  withCredentials: true, // Allows sending cookies (if using JWT in cookies)
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-// ✅ Attach token to every request
+//  Attach token to every request
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -23,7 +20,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// ✅ Handle Unauthorized Errors (Auto-Logout)
+// Handle Unauthorized Errors (Auto-Logout)
 api.interceptors.response.use(
   (response) => response,
   (error) => {
