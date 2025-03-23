@@ -15,11 +15,10 @@ window.addEventListener("error", resizeObserverErrHandler);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode>
+  
     <BrowserRouter>
       <div className="container-fluid">
         <App />
       </div>
     </BrowserRouter>
-  </React.StrictMode>
 );

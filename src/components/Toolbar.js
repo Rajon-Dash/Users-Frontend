@@ -7,7 +7,7 @@ import { logout } from "../utils/auth"; // Import logout function
 const Toolbar = ({ selectedUsers, fetchUsers, navigate }) => {
   const handleAction = async (action) => {
     if (!selectedUsers || selectedUsers.length === 0) {
-      alert("Please select at least one user.");
+      // alert("Please select at least one user.");
       return;
     }
 
@@ -15,7 +15,7 @@ const Toolbar = ({ selectedUsers, fetchUsers, navigate }) => {
       const response = await api.post(`/users/${action}`, { userIds: selectedUsers });
 
       if (response.data.logout) {
-        alert("You have blocked/deleted yourself. Redirecting to login...");
+        // alert("You have blocked/deleted yourself. Redirecting to login...");
         logout(navigate); // Logout if self-action
         return;
       }
@@ -23,7 +23,7 @@ const Toolbar = ({ selectedUsers, fetchUsers, navigate }) => {
       fetchUsers(); // Refresh user list after action
     } catch (error) {
       console.error("Action failed", error);
-      alert(error.response?.data?.error || "Something went wrong");
+      // alert(error.response?.data?.error || "Something went wrong");
     }
   };
 

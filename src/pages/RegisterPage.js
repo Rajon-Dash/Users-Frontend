@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../utils/api";
@@ -39,65 +38,78 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="container-fluid vh-100">
-      <div className="row h-100">
-        
+    <div className="container-fluid vh-100 d-flex align-items-center justify-content-center">
+      <div className="row w-100 justify-content-center">
+
         {/* Left: Registration Form */}
-        <div className="col-md-6 d-flex align-items-center justify-content-center">
-          <div className="w-75">
-            <h2 className="text-primary fw-bold text-center">THE APP</h2>
-            <h3 className="text-center">Create an Account</h3>
+        <div className="col-lg-4 col-md-6 col-12 d-flex align-items-center justify-content-center">
+          <div className="card shadow-lg rounded p-4" style={{ width: "100%", maxWidth: "450px" }}>
+            <h2 className="text-primary fw-bold text-center mb-4">THE APP</h2>
+            <h3 className="text-center mb-3">Create an Account</h3>
 
             {error && <div className="alert alert-danger">{error}</div>}
             {success && <div className="alert alert-success">{success}</div>}
 
             <form onSubmit={handleRegister}>
               <div className="mb-3">
-                <label className="form-label">Full Name</label>
+                <label className="form-label" htmlFor="name">Full Name</label>
                 <div className="input-group">
                   <span className="input-group-text"><FaUser /></span>
-                  <input 
-                    type="text" 
-                    className="form-control" 
+                  <input
+                    id="name"
+                    type="text"
+                    className="form-control"
                     placeholder="Enter your name"
-                    value={name} 
-                    onChange={(e) => setName(e.target.value)} 
-                    required 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    aria-label="Full Name"
                   />
                 </div>
               </div>
 
               <div className="mb-3">
-                <label className="form-label">E-mail</label>
+                <label className="form-label" htmlFor="email">E-mail</label>
                 <div className="input-group">
                   <span className="input-group-text"><FaEnvelope /></span>
-                  <input 
-                    type="email" 
-                    className="form-control" 
+                  <input
+                    id="email"
+                    type="email"
+                    className="form-control"
                     placeholder="Enter your email"
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
-                    required 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    aria-describedby="emailHelp"
+                    aria-label="Email"
                   />
                 </div>
               </div>
 
               <div className="mb-3">
-                <label className="form-label">Password</label>
+                <label className="form-label" htmlFor="password">Password</label>
                 <div className="input-group">
                   <span className="input-group-text"><FaLock /></span>
-                  <input 
-                    type="password" 
-                    className="form-control" 
+                  <input
+                    id="password"
+                    type="password"
+                    className="form-control"
                     placeholder="Enter your password"
-                    value={password} 
-                    onChange={(e) => setPassword(e.target.value)} 
-                    required 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    aria-label="Password"
                   />
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary w-100">Sign Up</button>
+              {/* Submit Button with Hover Effect */}
+              <button
+                type="submit"
+                className="btn btn-primary w-100 py-2 shadow-sm transition-all duration-200 hover:shadow-lg focus:outline-none"
+              >
+                Sign Up
+              </button>
             </form>
 
             <p className="mt-3 text-center">
@@ -106,24 +118,9 @@ const RegisterPage = () => {
           </div>
         </div>
 
-        {/* Right: Image Section */}
-        <div className="col-md-6 d-none d-md-block p-0">
-          <div 
-            className="h-100 w-100" 
-            style={{ 
-              backgroundImage: `url("/assets/undraw_login_weas.png")`, 
-              // backgroundImage: "none",
-              backgroundSize: "contain", 
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center"
-            }}
-          ></div>
-        </div>
-
       </div>
     </div>
   );
 };
 
 export default RegisterPage;
-
