@@ -1,4 +1,3 @@
-// src/App.js
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
@@ -19,7 +18,8 @@ const App = () => {
           </ProtectedRoute>
         }
       />
-      <Route path="*" element={<LoginPage />} />
+      {/* Only use wildcard for catching undefined routes */}
+      <Route path="*" element={<RegisterPage/>} />
     </Routes>
   );
 };

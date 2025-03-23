@@ -16,7 +16,8 @@ const LoginPage = () => {
       localStorage.setItem("token", response.data.token);
       navigate("/dashboard");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      console.error("Login error:", err); // Log error for debugging
+      setError(err.response?.data?.message || "Invalid credentials or user not found");
     }
   };
 
@@ -99,4 +100,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
